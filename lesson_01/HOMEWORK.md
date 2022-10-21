@@ -4,8 +4,8 @@
 
 - Installation Jupyter Notebook with pip
 
-```
 ### It is optionfl. Do it for practice if you heed it
+```
 pip install notebook
 ```
 
