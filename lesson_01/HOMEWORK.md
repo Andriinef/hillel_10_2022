@@ -5,7 +5,7 @@
 - Installation Jupyter Notebook with pip
 
 ```
-`hillel_10_2022 It is optionfl. Do it for practice if you heed it`
+### It is optionfl. Do it for practice if you heed it
 pip install notebook
 ```
 
