@@ -1,10 +1,10 @@
 ## <span style="color:green">Homework</span>
 
-### EN:
+### EN
 
 - Installation Jupyter Notebook with pip
 
-```
+```bash
 # It is optional. Do it for practice if you need it
 pip install notebook
 ```
