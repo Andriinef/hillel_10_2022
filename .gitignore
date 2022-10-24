@@ -1,7 +1,7 @@
-venv
-.venv
-.idea
-.pyc
-.djcache
-__pycache__
-django_cache
+venv/
+.venv/
+.idea/
+.pyc/
+.djcache/
+__pycache__/
+django_cache/
