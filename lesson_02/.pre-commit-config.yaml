@@ -1,0 +1,6 @@
+repos:
+-   repo: black
+    hooks:
+      - id: black
+        name: black
+        entry: black --check .
