@@ -5,3 +5,4 @@ venv/
 .djcache/
 __pycache__/
 django_cache/
+.vscode/
