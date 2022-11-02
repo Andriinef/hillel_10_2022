@@ -1,9 +1,9 @@
+import os
+import random
+
 from filter_lines import ROCKYOU_FILENAME, filter_lines
 from pympler import asizeof
 from username import User
-import random
-import os
-
 
 os.chdir("./lesson_04/search_file")
 
@@ -28,8 +28,7 @@ class SizeFile:
         self.randomfile = randomfile
 
     def __str__(self) -> str:
-            return str(asizeof.asizeof(self.randomfile))
-
+        return str(asizeof.asizeof(self.randomfile))
 
 
 sizefile = SizeFile()
