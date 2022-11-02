@@ -1,7 +1,11 @@
 from filter_lines import ROCKYOU_FILENAME, filter_lines
 from pympler import asizeof
-from randomfile import RandomFile
 from username import User
+import random
+import os
+
+
+os.chdir("./lesson_04/search_file")
 
 name = input("Enter your name: ")
 
@@ -17,12 +21,17 @@ for searchs in filter_lines(ROCKYOU_FILENAME, search):
     counter += 1
 
 
-class MyFile(RandomFile):
-    file = open(RandomFile.file_to_create, "w")
-    file.write("\n".join(file_text))
-    size_file = asizeof.asizeof(RandomFile.file_to_create)
+class SizeFile:
+    def __init__(self) -> None:
+        randomfile = open(str(random.randint(1, 50)) + ".txt", "w")
+        randomfile.write("\n".join(file_text))
+        self.randomfile = randomfile
+
+    def __str__(self) -> str:
+            return str(asizeof.asizeof(self.randomfile))
 
 
+
+sizefile = SizeFile()
 print(f"Total lines of file: {counter}")
-# print(f"Total size of file: {MyFile.size_file}")
-print("Total size of file: %d bytes" % MyFile.size_file)
+print(f"Total size of file: {sizefile}")

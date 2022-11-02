@@ -2,18 +2,44 @@ import os
 import random
 from pathlib import Path
 
-# from pympler import asizeof
+from pympler import asizeof
 
-
+lst = [
+    "rockyou",
+    " rockstar",
+    "rockon",
+    "rocker",
+    "rocky",
+    "rockme",
+    "rocku",
+    "therock",
+    "rocky1",
+    "yourock",
+    "rock you",
+    " punkrock",
+    "rockyou1",
+    "rocknroll",
+    "rocket",
+    "ROCKYOirockRockYou",
+    "rockers",
+    "shamrock",
+    "rockstar1",
+    "rockyou!",
+    "rocks",
+    "hardrock",
+]
 os.chdir("./lesson_04/search_file")
 
 
-class RandomFile:
-    file_name = random.randint(1, 50)
-    file_to_create = str(file_name) + ".txt"
-    Path(file_to_create).touch()
-    # size_file = asizeof.asizeof(file_to_create)
+class SizeFile:
+    def __init__(self, file_text) -> None:
+        randomfile = open(str(random.randint(1, 50)) + ".txt", "w")
+        randomfile.write("\n".join(file_text))
+        self.randomfile = randomfile
+
+    def __str__(self) -> str:
+        return str(asizeof.asizeof(self.randomfile))
 
 
-file = RandomFile
-# print(f"Total size of file: {RandomFile.size_file}")
+sizefile = SizeFile(lst)
+print(f"Total size of file: {sizefile}")

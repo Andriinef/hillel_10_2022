@@ -7,3 +7,4 @@ __pycache__/
 django_cache/
 .vscode/
 search_file/
+*.txt
