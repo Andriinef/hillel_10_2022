@@ -1,4 +1,4 @@
-from colorama import Fore, Style
+# from colorama import Fore, Style
 
 
 class Colors:
@@ -25,6 +25,7 @@ class Colors:
     BOLD = "\033[1m"
     ITALIC = "\033[3m"
     UNDERLINE = "\033[4m"
+    ENDC = "\033[0m"
 
 
 class Bcolors:
@@ -46,47 +47,47 @@ class Bcolors:
     CYANBG = "\033[106m"
 
 
-print(f'{Colors.OKGREEN}{"Hello"}{Colors.ENDC}, {"Andrii"}')
-print(f'{Bcolors.GREENBG}{"Hello"}{Bcolors.ENDC}, {"Andrii"}')
-print(f'{Fore.RED}{"Hello"}{Style.RESET_ALL}, {"Andrii"}')
+# print(f'{Colors.OKGREEN}{"Hello"}{Colors.ENDC}, {"Andrii"}')
+# print(f'{Bcolors.GREENBG}{"Hello"}{Bcolors.ENDC}, {"Andrii"}')
+# print(f'{Fore.RED}{"Hello"}{Style.RESET_ALL}, {"Andrii"}')
 
 
-class ColorsPrint:
-    print("\033[21m", end="")
-    print("wer")
-    print("\033[1m", end="")
-    print("wer")
-    print("\033[3m", end="")
-    print("wer")
-    print("\033[4m", end="")
-    print("wer")
+# class ColorsPrint:
+#     print("\033[21m", end="")
+#     print("wer")
+#     print("\033[1m", end="")
+#     print("wer")
+#     print("\033[3m", end="")
+#     print("wer")
+#     print("\033[4m", end="")
+#     print("wer")
 
-    print("\033[90m", end="")
-    print("qwe0")
-    print("\033[91m", end="")
-    print("qwe1")
-    print("\033[92m", end="")
-    print("qwe2")
-    print("\033[93m", end="")
-    print("qwe3")
-    print("\033[94m", end="")
-    print("qwe4")
-    print("\033[95m", end="")
-    print("qwe5")
-    print("\033[96m", end="")
-    print("qwe6")
+#     print("\033[90m", end="")
+#     print("qwe0")
+#     print("\033[91m", end="")
+#     print("qwe1")
+#     print("\033[92m", end="")
+#     print("qwe2")
+#     print("\033[93m", end="")
+#     print("qwe3")
+#     print("\033[94m", end="")
+#     print("qwe4")
+#     print("\033[95m", end="")
+#     print("qwe5")
+#     print("\033[96m", end="")
+#     print("qwe6")
 
-    print("\033[100m", end="")
-    print("qwe0")
-    print("\033[101m", end="")
-    print("qwe1")
-    print("\033[102m", end="")
-    print("qwe2")
-    print("\033[103m", end="")
-    print("qwe3")
-    print("\033[104m", end="")
-    print("qwe4")
-    print("\033[105m", end="")
-    print("qwe5")
-    print("\033[106m", end="")
-    print("qwe6")
+#     print("\033[100m", end="")
+#     print("qwe0")
+#     print("\033[101m", end="")
+#     print("qwe1")
+#     print("\033[102m", end="")
+#     print("qwe2")
+#     print("\033[103m", end="")
+#     print("qwe3")
+#     print("\033[104m", end="")
+#     print("qwe4")
+#     print("\033[105m", end="")
+#     print("qwe5")
+#     print("\033[106m", end="")
+#     print("qwe6")
