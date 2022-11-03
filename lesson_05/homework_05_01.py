@@ -6,6 +6,7 @@ from colors import Colors
 """
 
 color = {
+    "ENDC": "\033[0m",
     "grey": "\033[90m",
     "green": "\033[92m",
     "yellow": "\033[93m",
