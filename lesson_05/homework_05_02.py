@@ -26,6 +26,9 @@ class frange:
                 yield i
                 self.start += self.step
 
+    def __next__(self):
+        pass
+
 
 for i in frange(1, 100, 3.5):
     print(i)
