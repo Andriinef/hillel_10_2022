@@ -50,7 +50,9 @@ class CarRent:
             self.__total_price = value
 
     def book(self):
-        print(f"Booking {self.car} for {self.duration} hours by {self.user.name}")
+        print(
+            f"Booking {self.car} for {self.duration} hours by {self.user.name}"
+            )
         print(f"Total price: {self.total_price} $")
 
 
