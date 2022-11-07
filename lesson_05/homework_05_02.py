@@ -5,7 +5,7 @@
 
 
 class frange:
-    def __init__(self, start, end=None, step=1):
+    def __init__(self, start, end=None, step=1.0):
         if end is None:
             self.start = 0
             self.end = start

@@ -1,5 +1,3 @@
-from colors import Colors
-
 """
     Создайте контекстный менеджер colorizer,
     который будет печатать заданным цветом в произвольном блоке кода.
@@ -7,7 +5,7 @@ from colors import Colors
 """
 
 
-class Colorizer:
+class DctColor:
     color = {
         "grey": "\033[90m",
         "red": "\033[91m",
@@ -19,21 +17,23 @@ class Colorizer:
         "ENDC": "\033[0m",
     }
 
+
+class Colorizer:
     def __init__(self, colorizer):
         self.color = colorizer
 
     def __enter__(self):
-        if self.color in Colorizer.color:
-            for key, value in Colorizer.color.items():
+        if self.color in DctColor.color:
+            for key, value in DctColor.color.items():
                 if key == self.color:
+                    print(f"{value}", end="")
                     break
-            print(f"{value}", end="")
         else:
-            print(f"{Colors.FAIL}Error color")
-            self.color = Colorizer.color["ENDC"]
+            print(f"{DctColor.color['red']}Error color")
+            self.color = DctColor.color["ENDC"]
 
     def __exit__(self, type, value, traceback):
-        print(f"{Colors.ENDC}", end="")
+        print(f"{DctColor.color['ENDC']}", end="")
 
 
 with Colorizer("red"):

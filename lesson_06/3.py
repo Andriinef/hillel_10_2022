@@ -23,9 +23,7 @@ class User:
 
 
 class CarRent:
-    def __init__(
-        self, user: User, car: Car, duration: int, min_price: int = 300
-    ) -> None:
+    def __init__(self, user: User, car: Car, duration: int, min_price: int = 300) -> None:
         """
         duration set in minutes
         """
@@ -50,8 +48,7 @@ class CarRent:
             self.__total_price = value
 
     def book(self):
-        # print(f"Booking {self.car} for {self.duration}
-        # hours by {self.user.name}")
+        print(f"Booking {self.car} for {self.duration} hours by {self.user.name}")
         print(f"Total price: {self.total_price} $")
 
 
