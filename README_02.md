@@ -1,4 +1,5 @@
 Монтаж pipenv можно установить с Python 3.7 и выше.
+https://pypi.org/project/pipenv/
 
 ```bash
 sudo apt install pipenv

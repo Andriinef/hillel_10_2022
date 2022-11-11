@@ -62,7 +62,7 @@ class Discount:
         today: date = date.today()
         bd: date = self.rent.user.birthday
         if (bd.month, bd.day) == (today.month, today.day):
-            new_price: int = int(self.rent.total_price * 0.3)
+            new_price: int = int(self.rent.total_price * 0.9)
             self.rent.total_price = new_price
 
 
@@ -94,7 +94,7 @@ def main():
     discount = Discount(rent_vw)
     discount.apply()
 
-    rent.total_price = "asd"
+    rent.total_price = 1
     rent.book()
     rent_vw.book()
 

@@ -27,5 +27,5 @@ def greeting_marry():
 
 # logger(greeting_john)
 # logger(greeting_marry)
-greeting_john("*")  # type: ignore
-greeting_marry("#")  # type: ignore
+greeting_john()
+greeting_marry()
