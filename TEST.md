@@ -1,10 +1,13 @@
-## Test
-``` python
+# Test
+
+```python
 flake8
 ```
-``` python
+
+```python
 black .
 ```
-``` python
+
+```python
 isort .
 ```
