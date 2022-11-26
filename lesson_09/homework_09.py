@@ -11,12 +11,19 @@ def update_currency_data_file():
     return requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
 
 
+def get_input_validation(item):
+    while True:
+        currency = input(f"Enter {item} currency: ").upper()
+        try:
+            rate = [el["rate"] for el in data if el["cc"] == currency]
+            return currency, float(rate[0])
+        except CurrencyError:
+            print("Currency does not exist")
+
+
 def get_currensy_rate(currency, data):
-    for el in data:
-        if el["cc"] == currency:
-            rate = el["rate"]
-            return rate
-    raise CurrencyError("The not currency")
+    rate = [el["rate"] for el in data if el["cc"] == currency]
+    return float(rate[0])
 
 
 @dataclass
@@ -31,45 +38,40 @@ class Price:
         return Price(round(self.amount - another_price.amount, 2), self.currency)
 
     def __mul__(self, another_price):
-        return Price(self.amount * another_price, "UAH")
+        if self.currency != "USD":
+            return Price(self.amount * another_price, "UAH")
+        else:
+            return Price(self.amount, self.currency)
 
     def __truediv__(self, another_price):
-        return Price(self.amount / another_price, "USD")
+        if self.currency != "USD":
+            return Price(self.amount / another_price, "USD")
+        else:
+            return Price(self.amount, self.currency)
 
 
 if __name__ == "__main__":
     data = update_currency_data_file()
     amount = int(input("Digit first price: "))
-    while True:
-        currency = input("Enter first currency: ").upper()
-        try:
-            rate_first = get_currensy_rate(currency, data)
-            break
-        except CurrencyError:
-            print("Currency does not exist")
-    price_first = Price(amount, currency)
+    price = get_input_validation("first")
+    rate_first = price[1]
+    price_first = Price(amount, price[0])
 
     amount = int(input("Digit second price: "))
-    while True:
-        currency = input("Entert second currency: ").upper()
-        try:
-            rate_does = get_currensy_rate(currency, data)
-            break
-        except CurrencyError:
-            print("Currency does not exist")
-    price_does = Price(amount, currency)
+    price = get_input_validation("does")
+    rate_does = price[1]
+    price_does = Price(amount, price[0])
+
     if rate_first != rate_does:
+        """is a currency of the price USD"""
+        rate_usb = get_currensy_rate("USD", data)
+        price_first = price_first * rate_first
+        price_first = price_first / rate_usb
+        price_does = price_does * rate_does
+        price_does = price_does / rate_usb
         # """is a currency of the price that is on the left """
         #     price_does = price_does * rate_does
         #     price_does = price_does / rate_first
-        """is a currency of the price USD"""
-        rate_usb = get_currensy_rate("USD", data)
-        if rate_first != rate_usb:
-            price_first = price_first * rate_first
-            price_first = price_first / rate_usb
-        if rate_does != rate_usb:
-            price_does = price_does * rate_does
-            price_does = price_does / rate_usb
         print("-" * 30)
         print("Currencies of price instances are different. The price that is on the USD")
     add_price = price_first + price_does
