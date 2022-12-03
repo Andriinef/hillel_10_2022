@@ -23,16 +23,17 @@ def get_primes(start: int, end: int, thread: int) -> list[int]:
         results.extend(_results)
 
     for item in range(thread):
-        _thread = Thread(target=inner, args=[results, _start, _end, item])
-        _thread.start()
-        sleep(1)
-        _start = _end + 1
-        _end += _range
-        _thread.join()
+        if end > _start:
+            _thread = Thread(target=inner, args=[results, _start, _end, item])
+            _thread.start()
+            sleep(1)
+            _start = _end + 1
+            _end += _range
+            _thread.join()
     return results
 
 
 if __name__ == "__main__":
     thread = 5
-    data = get_primes(1, 100, thread)
+    data = get_primes(10, 20, thread)
     print(data)
