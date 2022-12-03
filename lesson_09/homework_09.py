@@ -11,7 +11,7 @@ def update_currency_data_file():
     return requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
 
 
-def get_input_validation(item):
+def get_input_validation_currency(item):
     while True:
         currency = input(f"Enter {item} currency: ").upper()
         try:
@@ -19,6 +19,16 @@ def get_input_validation(item):
             return currency, float(rate[0])
         except CurrencyError:
             print("Currency does not exist")
+
+
+def get_input_validation_amount(item):
+    while True:
+        amount = input(f"Digit {item} price: ")
+        try:
+            amount = int(amount)
+            return amount
+        except ValueError:
+            print("The amount must be a valid integer")
 
 
 def get_currensy_rate(currency, data):
@@ -52,13 +62,13 @@ class Price:
 
 if __name__ == "__main__":
     data = update_currency_data_file()
-    amount = int(input("Digit first price: "))
-    price = get_input_validation("first")
+    amount = get_input_validation_amount("first")
+    price = get_input_validation_currency("first")
     rate_first = price[1]
     price_first = Price(amount, price[0])
 
-    amount = int(input("Digit second price: "))
-    price = get_input_validation("does")
+    amount = get_input_validation_amount("second")
+    price = get_input_validation_currency("does")
     rate_does = price[1]
     price_does = Price(amount, price[0])
 
