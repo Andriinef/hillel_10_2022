@@ -5,32 +5,28 @@
 
 
 class frange:
-    def __init__(self, start, end=None, step=1.0):
-        if end is None:
-            self.start = 0
-            self.end = start
+    def __init__(self, start_or_stop, stop=None, step=1.0):
+        if stop is None:
+            start, stop = 0.0, start_or_stop
         else:
-            self.start = start
-            self.end = end
-        self.step = step
+            start, stop = start_or_stop, stop
+        self.start, self.stop, self.step = start, stop, step
+        self.current = self.start
 
     def __iter__(self):
-        if self.step > 0:
-            while self.start < self.end:
-                i = self.start
-                yield i
-                self.start += self.step
-        else:
-            while self.start > self.end:
-                i = self.start
-                yield i
-                self.start += self.step
+        return self
 
     def __next__(self):
-        pass
+        if self.step > 0 and self.current >= self.stop:
+            raise StopIteration
+        elif self.step < 0 and self.current <= self.stop:
+            raise StopIteration
+        result = self.current
+        self.current += self.step
+        return result
 
 
-for i in frange(1, 100, 3.5):
+for i in frange(1, 10, 3.5):
     print(i)
 
 

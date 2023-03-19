@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
 
 
 class City(BaseModel):
@@ -18,6 +18,10 @@ input_json = """
 
 
 if __name__ == "__main__":
-    city = City.parse_raw(input_json)
-    print(city)
+    try:
+        city = City.parse_raw(input_json)
+        print(city)
+    except ValidationError as e:
+        print(e.json())
+    # print(city)
     # print(City.name)
