@@ -16,7 +16,6 @@ input_json = """
 """
 
 
-
 if __name__ == "__main__":
     try:
         city = City.parse_raw(input_json)

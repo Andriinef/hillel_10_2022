@@ -20,5 +20,5 @@ jack = Dog()
 jack.say_hello()
 
 
-tom = Cat() # type: ignore
+tom = Cat()  # type: ignore
 # tom.say_hello()
